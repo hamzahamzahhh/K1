@@ -1,129 +1,61 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سباق الكرات الزجاجية</title>
+    <title>مسار النجاح</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f0f0f0;
             margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        #raceTrack {
-            width: 600px;
-            height: 400px;
-            background-color: #eee;
-            border: 2px solid #333;
-            margin: 20px auto;
-            position: relative;
-            overflow: hidden;
+        .container {
+            text-align: center;
+            background: #ffffff;
+            border-radius: 25px;
+            padding: 60px;
+            width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .ball {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            position: absolute;
-            top: 0;
-        }
-
-        #ball1 { background-color: red; }
-        #ball2 { background-color: blue; }
-        #ball3 { background-color: green; }
-
-        .obstacle {
-            width: 50px;
-            height: 50px;
-            background-color: black;
-            position: absolute;
+        h1 {
+            margin-bottom: 30px;
+            color: #333;
+            font-size: 28px;
         }
 
         .button {
-            margin: 10px;
-            padding: 10px 20px;
+            display: block;
+            width: 70%;
+            margin: 15px auto;
+            padding: 10px;
             font-size: 16px;
-            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            background: #2196f3;
+            transition: 0.3s ease;
+        }
+
+        .button:hover {
+            background: #1e88e5;
         }
     </style>
 </head>
 <body>
-
-<h1>لعبة سباق الكرات الزجاجية</h1>
-<p>اختر الكرة الخاصة بك:</p>
-<button class="button" id="chooseBall1">اختيار الكرة الحمراء</button>
-<button class="button" id="chooseBall2">اختيار الكرة الزرقاء</button>
-<button class="button" id="chooseBall3">اختيار الكرة الخضراء</button>
-
-<div id="raceTrack">
-    <div id="ball1" class="ball"></div>
-    <div id="ball2" class="ball"></div>
-    <div id="ball3" class="ball"></div>
-    <div class="obstacle" style="left: 200px; top: 150px;"></div>
-    <div class="obstacle" style="left: 400px; top: 250px;"></div>
-</div>
-
-<script>
-    // التحقق من HTTPS
-    if (window.location.protocol !== 'https:') {
-        alert('يرجى استخدام HTTPS للوصول إلى هذا الموقع.');
-        window.location.href = 'https://' + window.location.href.substring(window.location.protocol.length);
-    }
-
-    const balls = [
-        {element: document.getElementById('ball1'), position: 0, speed: Math.random() * 3 + 1},
-        {element: document.getElementById('ball2'), position: 0, speed: Math.random() * 3 + 1},
-        {element: document.getElementById('ball3'), position: 0, speed: Math.random() * 3 + 1}
-    ];
-
-    let raceStarted = false;
-    let chosenBall = null;
-
-    document.getElementById('chooseBall1').addEventListener('click', () => chooseBall(0));
-    document.getElementById('chooseBall2').addEventListener('click', () => chooseBall(1));
-    document.getElementById('chooseBall3').addEventListener('click', () => chooseBall(2));
-
-    function chooseBall(index) {
-        chosenBall = balls[index];
-        resetRace();
-        alert(`لقد اخترت الكرة ${chosenBall.element.id}! انقر لبدء السباق!`);
-    }
-
-    function resetRace() {
-        balls.forEach(ball => {
-            ball.position = 0;
-            ball.element.style.left = '0px';
-        });
-        raceStarted = false;
-    }
-
-    document.body.addEventListener('click', startRace);
-
-    function startRace() {
-        if (raceStarted || !chosenBall) return;
-        raceStarted = true;
-
-        balls.forEach((ball, index) => {
-            ball.interval = setInterval(() => {
-                ball.position += ball.speed;
-                ball.element.style.left = ball.position + 'px';
-
-                if (ball.position >= 550) {
-                    clearInterval(ball.interval);
-                    announceWinner(ball.element);
-                }
-            }, 30);
-        });
-    }
-
-    function announceWinner(winnerBall) {
-        setTimeout(() => {
-            alert(`${winnerBall.id} فاز بالسباق!`);
-        }, 100);
-    }
-</script>
-
+    <div class="container">
+        <h1>مرحباً بك</h1>
+        <a href="https://nz.sa/UbTKY" class="button" target="_blank">دخول الموقع</a>
+        <a href="https://nz.sa/Faghb" class="button" target="_blank">تحميل التطبيق</a>
+    </div>
 </body>
 </html>
